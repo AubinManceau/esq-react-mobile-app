@@ -9,19 +9,19 @@ const styles = StyleSheet.create({
         fontWeight: '900',
     },
     title2: {
-        fontSize: 14,
+        fontSize: 16,
         lineHeight: 16,
         fontWeight: 'bold',
     },
     title3: {
-        fontSize: 12,
+        fontSize: 16,
         lineHeight: 16,
-        fontWeight: 'bold',
+        fontWeight: 'medium',
     },
     body1: {
-        fontSize: 14,
-        lineHeight: 20,
-        fontWeight: 'normal',
+        fontSize: 11,
+        lineHeight: 16,
+        fontWeight: 'regular',
     },
     body2: {
         fontSize: 12,
