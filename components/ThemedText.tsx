@@ -4,9 +4,9 @@ import { Colors } from '@/constants/Colors';
 
 const styles = StyleSheet.create({
     title1: {
-        fontSize: 16,
-        lineHeight: 16,
-        fontWeight: 'bold',
+        fontSize: 20,
+        lineHeight: 20,
+        fontWeight: '900',
     },
     title2: {
         fontSize: 14,
