@@ -9,55 +9,7 @@ import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { useThemeColors } from "@/hooks/useThemeColors";
 
-function HomeStack() {
-    const HomeStack = createNativeStackNavigator();
-    return (
-        <HomeStack.Navigator screenOptions={{
-            headerShown: false
-          }}>
-            <HomeStack.Screen name="Home" component={Home}/>
-            <HomeStack.Screen name="Settings" component={Settings} />
-        </HomeStack.Navigator>
-    );
-}
-
-function TrainingStack() {
-    const TrainingStack = createNativeStackNavigator();
-    return (
-        <TrainingStack.Navigator screenOptions={{
-            headerShown: false
-          }}>
-            <TrainingStack.Screen name="Training" component={Trainings}/>
-            <TrainingStack.Screen name="Settings" component={Settings} />
-        </TrainingStack.Navigator>
-    );
-}
-
-function MessageStack() {
-    const MessageStack = createNativeStackNavigator();
-    return (
-        <MessageStack.Navigator screenOptions={{
-            headerShown: false
-          }}>
-            <MessageStack.Screen name="Message" component={Message}/>
-            <MessageStack.Screen name="Settings" component={Settings} />
-        </MessageStack.Navigator>
-    );
-}
-
-function ConvocationStack() {
-    const ConvocationStack = createNativeStackNavigator();
-    return (
-        <ConvocationStack.Navigator screenOptions={{
-            headerShown: false
-          }}>
-            <ConvocationStack.Screen name="Convocation" component={Convocation}/>
-            <ConvocationStack.Screen name="Settings" component={Settings} />
-        </ConvocationStack.Navigator>
-    );
-}
-
-export default function Root() {
+function Tabs() {
     const Tab = createBottomTabNavigator();
     const colors = useThemeColors();
     return (
@@ -70,7 +22,7 @@ export default function Root() {
       >
         <Tab.Screen 
         name="HomeScreen" 
-        component={HomeStack}
+        component={Home}
         options={{
             headerShown: false,
             tabBarIcon: ({ focused }) => (
@@ -93,7 +45,7 @@ export default function Root() {
         />
         <Tab.Screen 
         name="TrainingScreen" 
-        component={TrainingStack}
+        component={Trainings}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
@@ -116,7 +68,7 @@ export default function Root() {
         />
         <Tab.Screen 
         name="MessageScreen" 
-        component={MessageStack}
+        component={Message}
         options={{
             headerShown: false,
             tabBarIcon: ({ focused }) => (
@@ -139,7 +91,7 @@ export default function Root() {
         />
         <Tab.Screen 
         name="ConvocationScreen" 
-        component={ConvocationStack}  
+        component={Convocation}  
         options={{
             headerShown: false,
             tabBarIcon: ({ focused }) => (
@@ -161,6 +113,16 @@ export default function Root() {
         }}
         />
       </Tab.Navigator>
+    );
+}
+
+export default function Root() {
+    const Stack = createNativeStackNavigator();
+    return (
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Tabs" component={Tabs} />
+        <Stack.Screen name="Settings" component={Settings} />
+      </Stack.Navigator>
     );
 }
 
