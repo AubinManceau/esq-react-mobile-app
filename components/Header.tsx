@@ -1,7 +1,7 @@
-import {StyleSheet, View, type TextProps, Image } from 'react-native';
+import {StyleSheet, View, type TextProps, Image, TouchableOpacity } from 'react-native';
 import { useThemeColors } from '@/hooks/useThemeColors';
 import ThemedText from './ThemedText';
-import { Link } from 'expo-router';
+import { useNavigation } from '@react-navigation/native';
 
 type Props = TextProps & {
     pageName: string;
@@ -9,12 +9,13 @@ type Props = TextProps & {
 
 export default function Header({pageName}: Props) {
     const colors = useThemeColors();
+    const navigation = useNavigation();
     return (
         <View style={[styles.container, {backgroundColor: colors.white}]}>
             <ThemedText variant="title1" color="black">{pageName}</ThemedText>
-            <Link href="/screen/Settings" style={styles.settings}>
+            <TouchableOpacity onPress={() => navigation.navigate('Settings')} style={styles.settings}>
                 <Image source={require('../assets/icons/user.png')} style={styles.icon} />
-            </Link>
+            </TouchableOpacity>
         </View>
     );
 }

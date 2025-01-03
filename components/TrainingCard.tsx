@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
         borderColor: "#00000020",
         borderRadius: 8,
         margin: "auto",
+        marginBottom: 20,
     },
     date:{
         width: "15%",
