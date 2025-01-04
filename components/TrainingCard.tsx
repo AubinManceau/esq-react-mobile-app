@@ -1,11 +1,13 @@
-import {StyleSheet, View, Text } from "react-native";
+import {StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { useThemeColors } from "@/hooks/useThemeColors";
 import ThemedText from "./ThemedText";
+import { useNavigation } from "@react-navigation/native";
 
-export default function Convocation() {
+export default function TrainingCard() {
     const colors = useThemeColors();
+    const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <TouchableOpacity onPress={() => navigation.navigate('DetailTraining')} style={styles.container}>
             <View style={styles.haut}>
                 <View style={styles.date}>
                     <ThemedText style={{textAlign: 'center'}} variant="title2" color="black">27</ThemedText>
@@ -27,7 +29,7 @@ export default function Convocation() {
                     <Text style={[styles.boutons_btn, { backgroundColor: colors.secondary, borderColor: colors.secondary, color: colors.white }]}>Absent</Text>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 

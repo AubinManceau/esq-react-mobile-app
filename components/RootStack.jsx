@@ -8,6 +8,7 @@ import Convocation from '@/app/screen/Convocation';
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { useThemeColors } from "@/hooks/useThemeColors";
+import DetailTraining from '@/app/screen/DetailTraining';
 
 function Tabs() {
     const Tab = createBottomTabNavigator();
@@ -122,6 +123,7 @@ export default function Root() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Tabs" component={Tabs} />
         <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="DetailTraining" component={DetailTraining} />
       </Stack.Navigator>
     );
 }
