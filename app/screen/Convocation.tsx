@@ -12,13 +12,13 @@ export default function Convocation() {
     <SafeAreaView style={[styles.container, {backgroundColor: colors.white}]}>
       <Header pageName="Convocations" />
       <View>
-        <TouchableOpacity onPress={() => navigation.navigate('DetailConvocation')} style={[styles.blockConvocation, {backgroundColor: colors.primary}]}>
+        <TouchableOpacity onPress={() => navigation.navigate('DetailConvocation', {screenTitle: 'Sénior A'})} style={[styles.blockConvocation, {backgroundColor: colors.primary}]}>
           <ThemedText color="white" variant="title2" style={styles.text}>Sénior A</ThemedText>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('DetailConvocation')} style={[styles.blockConvocation, {backgroundColor: colors.primary}]}>
+        <TouchableOpacity onPress={() => navigation.navigate('DetailConvocation', {screenTitle: 'Sénior B'})} style={[styles.blockConvocation, {backgroundColor: colors.primary}]}>
           <ThemedText color="white" variant="title2" style={styles.text}>Sénior B</ThemedText>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('DetailConvocation')} style={[styles.blockConvocation, {backgroundColor: colors.primary}]}>
+        <TouchableOpacity onPress={() => navigation.navigate('DetailConvocation', {screenTitle: 'Sénior C'})} style={[styles.blockConvocation, {backgroundColor: colors.primary}]}>
           <ThemedText color="white" variant="title2" style={styles.text}>Sénior C</ThemedText>
         </TouchableOpacity>
       </View>

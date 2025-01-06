@@ -3,11 +3,16 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useThemeColors } from "@/hooks/useThemeColors";
 import ProfilHeader from "@/components/ProfilHeader";
 
-export default function DetailTraining() {
+import { RouteProp } from '@react-navigation/native';
+
+type DetailTrainingRouteProp = RouteProp<{ params: { screenTitle: string } }, 'params'>;
+
+export default function DetailTraining({ route }: { route: DetailTrainingRouteProp }) {
   const colors = useThemeColors();
+  const { screenTitle } = route.params;
   return (
     <SafeAreaView style={[styles.container, {backgroundColor: colors.white}]}>
-      <ProfilHeader pageName="detail entrainement" />
+      <ProfilHeader pageName={screenTitle} />
     </SafeAreaView>
   );
 }

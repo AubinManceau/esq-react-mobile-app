@@ -14,7 +14,7 @@ export default function TrainingCard() {
     };
 
     return (
-        <TouchableOpacity onPress={() => navigation.navigate('DetailTraining')} style={styles.container}>
+        <TouchableOpacity onPress={() => navigation.navigate('DetailTraining', {screenTitle: 'Entraînement 27 OCT'})} style={styles.container}>
             <View style={styles.haut}>
                 <View style={styles.date}>
                     <ThemedText style={{ textAlign: 'center' }} variant="title2" color="black">27</ThemedText>

@@ -3,11 +3,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useThemeColors } from "@/hooks/useThemeColors";
 import ProfilHeader from "@/components/ProfilHeader";
 
-export default function DetailConvocation() {
+export default function DetailConvocation({ route }) {
   const colors = useThemeColors();
+  const { screenTitle } = route.params;
   return (
     <SafeAreaView style={[styles.container, {backgroundColor: colors.white}]}>
-      <ProfilHeader pageName="detail convocation" />
+      <ProfilHeader pageName={screenTitle} />
     </SafeAreaView>
   );
 }
