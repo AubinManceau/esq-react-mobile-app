@@ -9,6 +9,7 @@ import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { useThemeColors } from "@/hooks/useThemeColors";
 import DetailTraining from '@/app/screen/DetailTraining';
+import DetailConvocation from '@/app/screen/DetailConvocation';
 
 function Tabs() {
     const Tab = createBottomTabNavigator();
@@ -121,9 +122,10 @@ export default function Root() {
     const Stack = createNativeStackNavigator();
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Tabs" component={Tabs} />
-        <Stack.Screen name="Settings" component={Settings} />
-        <Stack.Screen name="DetailTraining" component={DetailTraining} />
+        <Stack.Screen name="Tabs" component={Tabs} options={{animation: 'slide_from_right'}} />
+        <Stack.Screen name="Settings" component={Settings} options={{animation: 'slide_from_right'}} />
+        <Stack.Screen name="DetailTraining" component={DetailTraining} options={{animation: 'slide_from_right'}} />
+        <Stack.Screen name="DetailConvocation" component={DetailConvocation} options={{animation: 'slide_from_right'}} />
       </Stack.Navigator>
     );
 }
