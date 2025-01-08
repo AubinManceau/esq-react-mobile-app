@@ -2,7 +2,6 @@ import {StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useThemeColors } from "@/hooks/useThemeColors";
 import ProfilHeader from "@/components/ProfilHeader";
-
 import { RouteProp } from '@react-navigation/native';
 
 type DetailTrainingRouteProp = RouteProp<{ params: { screenTitle: string } }, 'params'>;

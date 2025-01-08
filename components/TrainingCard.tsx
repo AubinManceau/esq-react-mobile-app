@@ -3,8 +3,17 @@ import { useThemeColors } from "@/hooks/useThemeColors";
 import ThemedText from "./ThemedText";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
+import { TextProps } from "react-native";
+import { format } from 'date-fns';
+import { fr } from 'date-fns/locale';
 
-export default function TrainingCard() {
+type Props = {
+    type: string;
+    date: string;
+    startTime: string;
+  };
+
+export default function TrainingCard({ type, date, startTime }: Props) {
     const colors = useThemeColors();
     const navigation = useNavigation();
     const [status, setStatus] = useState<string | null>(null);
@@ -13,16 +22,21 @@ export default function TrainingCard() {
         setStatus(prevStatus => prevStatus === type ? null : type);
     };
 
+    const formattedDate = format(new Date(date), 'dd', { locale: fr });
+    const formattedMonth = format(new Date(date), 'MMM', { locale: fr }).replace('.', '').toUpperCase();
+    const formattedDay = format(new Date(date), 'EEEE', { locale: fr });
+    const capitalizedDay = formattedDay.charAt(0).toUpperCase() + formattedDay.slice(1);
+    const screenTitle = type === "match" ? `Match ${formattedDate} ${formattedMonth}` : `Entraînement ${formattedDate} ${formattedMonth}`;
     return (
-        <TouchableOpacity onPress={() => navigation.navigate('DetailTraining', {screenTitle: 'Entraînement 27 OCT'})} style={styles.container}>
+        <TouchableOpacity onPress={() => navigation.navigate('DetailTraining', {screenTitle: screenTitle})} style={styles.container}>
             <View style={styles.haut}>
                 <View style={styles.date}>
-                    <ThemedText style={{ textAlign: 'center' }} variant="title2" color="black">27</ThemedText>
-                    <ThemedText style={{ textAlign: 'center' }} variant="title2" color="black">OCT</ThemedText>
+                    <ThemedText style={{ textAlign: 'center' }} variant="title2" color="black">{formattedDate}</ThemedText>
+                    <ThemedText style={{ textAlign: 'center' }} variant="title2" color="black">{formattedMonth}</ThemedText>
                 </View>
                 <View style={styles.infos}>
-                    <ThemedText variant="title3" color="black">Entraînement</ThemedText>
-                    <ThemedText variant="body1" color="black">Vendredi, 19h30</ThemedText>
+                    <ThemedText variant="title3" color="black">{type == "match" ? "Match" : "Entraînement"}</ThemedText>
+                    <ThemedText variant="body1" color="black">{capitalizedDay}, {startTime}</ThemedText>
                 </View>
             </View>
             <View style={styles.bas}>
